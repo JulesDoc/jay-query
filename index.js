@@ -1,13 +1,15 @@
 /* eslint-disable linebreak-style */
 'use strict';
-var allMethods = {};
+const allMethods = {};
 
 function J$ (selector) {
-  var allElements = document.querySelectorAll(selector);
+  const allElements = document.querySelectorAll(selector);
 
   allMethods.addClass = function addClass (className) {
     allElements.forEach((x) => x.classList.add(className));
+    
     return this;
+    
   };
 
   allMethods.removeClass = function removeClass (className) {
