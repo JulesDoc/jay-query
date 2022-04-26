@@ -26,7 +26,7 @@ function J$ (selector) {
     return this;
   };
 
-  const resultObj = Object.assign(allElements, allMethods); // Object.assign(target, source)
+  const resultObj = Object.assign(allElements, allMethods);
   return resultObj;
 }
 
