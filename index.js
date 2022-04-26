@@ -4,27 +4,47 @@ var allMethods = {};
 
 function J$ (selector) {
   var allElements = document.querySelectorAll(selector);
-  allMethods.addClass = function addClass (string) {
-    allElements.forEach((x) => x.classList.add(string));
+
+  allMethods.addClass = function addClass (className) {
+    allElements.forEach((x) => x.classList.add(className));
     return this;
   };
 
-  allMethods.removeClass = function removeClass (string) {
-    allElements.forEach((x) => x.classList.remove(string));
+  allMethods.removeClass = function removeClass (className) {
+    allElements.forEach((x) => x.classList.remove(className));
     return this;
   };
 
-  allMethods.toggleClass = function toggleClass (string) {
+  allMethods.toggleClass = function toggleClass (className) {
     allElements.forEach((x) => {
-      if (x.classList.contains(string)) {
-        x.classList.remove(string);
+      if (x.classList.contains(className)) {
+        x.classList.remove(className);
         return this;
-      } else {x.classList.add(string);
+      } else {x.classList.add(className);
         return this;
       }
     });
     return this;
   };
+
+  allMethods.hide = function hide () {
+    allElements.forEach((x) => x.style.display = 'none');
+    return this;
+  };
+
+  allMethods.show = function show () {
+    allElements.forEach((x) => {
+      if (x.style.display != 'visible') {
+        x.style.display = 'inline';
+        return this;
+      }
+      if (x.style.display == 'visible' || x.style.display == '') return this;
+      // else x.style.display = 'visible';
+    });
+    return this;
+  };
+
+
 
   const resultObj = Object.assign(allElements, allMethods);
   return resultObj;
