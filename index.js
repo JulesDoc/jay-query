@@ -38,10 +38,8 @@ function J$ (selector) {
         x.style.display = 'inline';
         return this;
       }
-      if (x.style.display == 'visible' || x.style.display == '') return this;
-      // else x.style.display = 'visible';
+      else if (x.style.display === 'visible' ||  x.style.visibility === 'visible') return this;
     });
-    return this;
   };
 
 
